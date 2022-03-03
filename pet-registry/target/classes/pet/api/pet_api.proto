@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+package pet.api;
+
+option java_outer_classname = "PetApi";
+
+import "google/protobuf/empty.proto";
+import "akkaserverless/annotations.proto";
+
+message Pet {
+  string pet_id = 1 [(akkaserverless.field).entity_key = true];
+  string animal_type = 2;
+  string date_of_adoption = 3;
+  string pet_gender = 4;
+  string vaccination_status = 5;
+  string adopter_name = 6;
+  AdopterAddress adopterAddress = 7;
+}
+
+message AdopterAddress {
+  string street_or_road = 1;
+  string house_number = 2;
+  string city = 3;
+}
+
+message GetPetRequest {
+  string pet_id = 1 [(akkaserverless.field).entity_key = true];
+}
+
+message ChangeAnimalTypeRequest {
+  string pet_id = 1 [(akkaserverless.field).entity_key = true];
+  string new_animal_type = 2;
+}
+
+message ChangeGenderRequest {
+  string pet_id = 1 [(akkaserverless.field).entity_key = true];
+  string new_pet_gender = 2;
+}
+
+message ChangeAdopterNameRequest {
+  string pet_id = 1 [(akkaserverless.field).entity_key = true];
+  string new_adopter_name = 2;
+}
+
+message ChangeAdopterAddressRequest {
+  string pet_id = 1 [(akkaserverless.field).entity_key = true];
+  AdopterAddress new_adopterAddress = 2;
+}
+
+service PetService {
+  option (akkaserverless.codegen) = {
+    value_entity: {
+      name: "pet.domain.Pet"
+      entity_type: "pets"
+      state: "pet.domain.PetState"
+    }
+  };
+
+  rpc NewAdoption(Pet) returns (google.protobuf.Empty) {}
+  rpc RetrievePetDetails(GetPetRequest) returns (Pet) {}
+  rpc EditPetType(ChangeAnimalTypeRequest) returns (google.protobuf.Empty) {}
+  rpc EditPetGender(ChangeGenderRequest) returns (google.protobuf.Empty) {}
+  rpc EditAdopterName(ChangeAdopterNameRequest) returns (google.protobuf.Empty) {}
+  rpc EditAdopterAddress(ChangeAdopterAddressRequest) returns (google.protobuf.Empty) {}
+}

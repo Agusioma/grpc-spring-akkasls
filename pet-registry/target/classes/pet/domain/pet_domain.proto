@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package pet.domain;
+
+option java_outer_classname = "PetDomain";
+
+message PetState {
+  string pet_id = 1;
+  string animal_type = 2;
+  string date_of_adoption = 3;
+  string pet_gender = 4;
+  string vaccination_status = 5;
+  string adopter_name = 6;
+  AdopterAddress adopterAddress = 7;
+}
+
+message AdopterAddress {
+  string street_or_road = 1;
+  string house_number = 2;
+  string city = 3;
+}
+

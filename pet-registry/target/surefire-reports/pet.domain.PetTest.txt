@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: pet.domain.PetTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.192 s <<< FAILURE! - in pet.domain.PetTest
+exampleTest(pet.domain.PetTest)  Time elapsed: 0.021 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.exampleTest(PetTest.java:20)
+
+editAdopterAddressTest(pet.domain.PetTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.editAdopterAddressTest(PetTest.java:68)
+
+editPetTypeTest(pet.domain.PetTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.editPetTypeTest(PetTest.java:47)
+
+newAdoptionTest(pet.domain.PetTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.newAdoptionTest(PetTest.java:33)
+
+editAdopterNameTest(pet.domain.PetTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.editAdopterNameTest(PetTest.java:61)
+
+retrievePetDetailsTest(pet.domain.PetTest)  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.retrievePetDetailsTest(PetTest.java:40)
+
+editPetGenderTest(pet.domain.PetTest)  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Not implemented yet, replace with your empty entity state
+	at pet.domain.PetTest.editPetGenderTest(PetTest.java:54)
+

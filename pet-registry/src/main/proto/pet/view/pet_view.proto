@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package pet.view;
+
+option java_outer_classname = "PetViewModel";
+
+import "pet/domain/pet_domain.proto";
+import "akkaserverless/annotations.proto";
+
+service PetByGender {
+  option (akkaserverless.codegen) = {
+    view: {}
+  };
+
+  rpc UpdatePet(domain.PetState) returns (domain.PetState) {
+    option (akkaserverless.method).eventing.in = {
+      value_entity: "pets"
+    };
+    option (akkaserverless.method).view.update = {
+      table: "pets_by_gender"
+    };
+  }
+
+  rpc RetrievePetByGender(ByGenderRequest) returns (domain.PetState) {
+    option (akkaserverless.method).view.query = {
+      query: "SELECT * FROM pets_by_gender WHERE pet_gender = :pet_gender"
+    };
+  }
+}
+
+message ByGenderRequest {
+  string pet_gender = 1;
+}
